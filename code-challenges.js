@@ -174,14 +174,59 @@ var people = [{name: "ford prefect", occupation: "hitchhiker"}, {name: "zaphod b
 
 const sentencePerson = listPeople => {
 
-    // TODO : comment my code
+
+    /* = * = * = * = * = * = * = * = * = * = * = * = * = * = * = *
+    // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+    //                     Full Method
+    // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+    /* = * = * = * = * = * = * = * = * = * = * = * = * = * = * = *
+
 
     return listPeople.reduce( (paragraph, currentPerson) =>
         `${paragraph} "${[ (currentPerson['name'].split(' ').map(
-            (name) => { return name[0].toUpperCase() + name.slice(1) }
+            (name) => name[0].toUpperCase() + name.slice(1)
         ).join(' ')), currentPerson['occupation'] ].join(
-            currentPerson['occupation'].startsWith('president') ?
-            ' is the '  :  ' is a '
+            currentPerson['occupation'].startsWith('president') ? 
+            ' is the ' : ' is a '
+        )}."`,'')
+
+
+    *//* = * = * = * = * = * = * = * = * = * = * = * = * = * = * = */
+
+
+
+
+    /* = * = * = * = * = * = * = * = * = * = * = * = * = * = * = *
+    // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+    //                      Breakdown
+    // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+    *//* = * = * = * = * = * = * = * = * = * = * = * = * = * = * = */
+
+
+    // Combine each Object/Person's sentence into one paragraph
+    // using the 'reduce method.
+    return listPeople.reduce( (paragraph, currentPerson) =>
+
+        // Concatenate the new sentence onto the current, ongoing paragraph.
+
+        // * Inside String Interpolation, I place the name and
+        //   occupation in an array as two items.
+        `${paragraph} "${[ (currentPerson['name'].split(' ').map(
+
+            // Split the first from the last name,
+            // and capitalize the first letter.
+            (name) => name[0].toUpperCase() + name.slice(1)
+
+        // Joining the first and last name together with a space.
+        /*  I join the name and occupation by calling the 'join'
+            method on the array, and place ' is a ' between them.*/
+        ).join(' ')), currentPerson['occupation'] ].join(
+            
+            // I have to check if the occupation begins with 'president'
+            // because it requires the name and occupation be combined
+            // with ' is the ', and not, ' is a '.
+            currentPerson['occupation'].startsWith('president') ? 
+            ' is the ' : ' is a '
         )}."`,'')
 
 }
@@ -196,11 +241,17 @@ CustomLog.log(  "People & Their Occupations",
 
 // --------------------2) Create a function that takes in a mixed data array and returns an array of only the remainder of the numbers when divided by 3.
 
-var testingArray1 = [23, "Heyyyy!", 45, -9, 0, "Yo", false]
-// Expected output: [ 2, 0, -0, 0 ]
-var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
-// Expected output: [ 2, 1, -1 ]
+var testingArray1 = [23, "Heyyyy!", 45, -9, 0, "Yo", false]  // Expected output: [ 2, 0, -0, 0 ]
+var testingArray2 = [5, "Hola", 43, -34, "greetings", true]  // Expected output: [ 2, 1, -1 ]
 
+const getRemaindersOfThree = arrIn => {
+    return arrIn.filter((v)=>typeof v === 'number').map((v)=>v%3)
+}
+
+CustomLog.log(  "The Remainder of Numbers When Divided by 3",
+    getRemaindersOfThree(testingArray1),
+    getRemaindersOfThree(testingArray2)
+)
 
 
 
@@ -210,3 +261,48 @@ var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
 var testingArray3 = [3, 7, "hi", 10, 3, "hello", 4, "hi"]
 var testingArray4 = [7, "hi", 3, 1, "hi", 4, "hello", 4, 7]
 // Expected output: [ 3, 7, "hi", 10, "hello", 4, 1 ]
+
+const combineAndRemoveDupes = ( arr1, arr2 ) => {
+    return [ ... new Set( arr1.concat(arr2) ) ]
+}
+
+CustomLog.log(  "Combine & Remove Duplicates",
+    `from: ${testingArray3.get_custom_log_format()}`,
+    `   &  ${testingArray4.get_custom_log_format()}`,
+    '',
+    `to: ${combineAndRemoveDupes( testingArray3, testingArray4 ).get_custom_log_format().emphasize()}`
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log( "\n\n" )
+// EOF
