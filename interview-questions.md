@@ -43,6 +43,8 @@ Answer the following questions. First, without external resources. Challenge you
   Researched answer:
 	- For these three commands, the previous answer is correct.
 	->  Rails will make sure, in the background, that the files can be created and generate migrations along side those that need it.
+	
+	- migration, model, controller, resource
 
 
 
