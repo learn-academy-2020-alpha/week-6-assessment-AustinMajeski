@@ -50,20 +50,26 @@ Answer the following questions. First, without external resources. Challenge you
 
 /users        method="GET"   
 	- This retrieves every entry from the database (index method)
+	- index, show all
 
 /users/1      method="GET"   
 	- This retrieves ONE entry from the database (show method)
+	- show, show one
 
 /users/new    method="GET"   
 	- Allows someone to enter all the information needed to create an entry in the databae through the use of forms, or other input methods (inside the ' new.html.erb ' file )   (new method)
+	- new, show form
 
 /users/       method="POST"     
 	- Using the JSON provided to it, this will create a new entry in the ' User ' model.  (create method)
+	- create, submitting form
 
 /users/1      method="PUT"    
 	- Update/edit ONE specific entry with the given id.   (update method)
+	- update, change num 1
 
 /users/1      method="DELETE"
 	- Delete (destroy)ONE specific entry with the given id.   (destroy method)
+	- destroy, delete
 
 
