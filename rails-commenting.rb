@@ -7,6 +7,7 @@
 
 # 1)  Declaring a class called 'BlogPostsController' that extends 'ApplicationController'
 		#  This will be automatically generated when creating a controller ( console: " rails generate controller BlogPosts " )
+		#  ( controller class of the model )
 class BlogPostsController < ApplicationController
   def index
     # 2)  This is retrieving all blog posts from the database as an array and store them in the instance variable: @posts
@@ -16,16 +17,19 @@ class BlogPostsController < ApplicationController
   def show
     # 3)  This will take an id of a blog post (an integer) and retrieve that ONE entry from the database.
 			# ( And store it in the instance variable: @post )
+	  		#  shows a specific blog post ( with a given id )
     @post = BlogPost.find(params[:id])
   end
 
   # 4)  This, to my knowledge, is one of those 'required words' that gets automatically called / redirected to when creating a new blog post ( presumably from the 'create' method )
+	# form
   def new
   end
 
   def create
     # 5)   Taking in the parameters required to create a blog post, this function will be called when creating a blog post.
 			#  This will also check if the parameters were entered correctly by calling 'valid?' on the object.
+	  		#  Creating a blog post, and checking validations
     @post = BlogPost.create(blog_post_params)
     if @post.valid?
       redirect_to @post
